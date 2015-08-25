@@ -1,0 +1,5 @@
+Import-Module WebAdministration
+$DebugPreference = 'Continue'
+$id = (Get-WebSite | foreach {$_.id} | sort -Descending | select -first 1) + 1 
+write-Debug "New-WebSite <%=@switches-%> -ID ${id}"
+New-WebSite -ID $id <%=@switches-%>
